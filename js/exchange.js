@@ -3,7 +3,11 @@ import { displayConversion, displayError, createSelectionForms } from './../inde
 
 export function getConversionRate(baseAmount, baseCode, queryCode) {
   ExchangeService.getConversionRate(baseAmount, baseCode, queryCode)
-  .then((conversion) => {
-    
-  }
+    .then((conversion) => {
+      if (conversion.result === "success") {
+        displayConversion(conversion, baseCode, queryCode);
+      } else {
+        displayError(conversion, baseCode, queryCode);
+      }
+    });
 }
