@@ -12,8 +12,8 @@ export function getConversionRate(baseAmount, baseCode, queryCode) {
     });
 }
 
-export function getMiscCodes() {
-  ExchangeService.getMiscCodes()
+export function getSupportedCodes() {
+  ExchangeService.getSupportedCodes()
   .then((currencies) => {
     if (currencies.result === "success") {
       createSelectionForms(currencies["supported_codes"]);
