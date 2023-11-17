@@ -12,3 +12,6 @@ export function getConversionRate(baseAmount, baseCode, queryCode) {
     });
 }
 
+export function getMiscCodes() {
+  ExchangeService.getMiscCodes()
+}
