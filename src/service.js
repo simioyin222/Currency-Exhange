@@ -20,4 +20,8 @@ export default class ExchangeService {
       });
   }
   
+  static getMiscCodes() {
+    const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/codes`;
+    return fetch(url)
+  }
 }

@@ -11,3 +11,4 @@ export function getConversionRate(baseAmount, baseCode, queryCode) {
       }
     });
 }
+
