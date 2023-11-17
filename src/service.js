@@ -19,9 +19,21 @@ export default class ExchangeService {
         return error;
       });
   }
-  
+
   static getMiscCodes() {
     const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/codes`;
     return fetch(url)
+      .then(function (response) {
+        if (!response.ok) {
+          return response.json().then(function (apiResponse) {
+            const errorMessage = `${response.status}: ${apiResponse["error-type"]}`;
+            throw new Error(errorMessage);
+          });
+        }
+        return response.json();
+      })
+      .catch(function (error) {
+        return error;
+      });
   }
 }
