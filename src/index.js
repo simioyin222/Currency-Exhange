@@ -1,18 +1,19 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import { getConversionRate, getSupportedCodes } from './js/exchange'; // Import functions
+import { getConversionRate, getSupportedCodes } from './js/exchange';
 
-export function createSelectionForms(SupportedCodes) {
+export function createSelectionForms(supportedCodes) {
   const selectTargetCurrency = document.getElementById('target-currency');
   selectTargetCurrency.innerHTML = '';
 
-  for (const currency in SupportedCodes) {
+  supportedCodes.forEach(codePair => {
+    const [code, name] = codePair;
     const option = document.createElement('option');
-    option.value = currency;
-    option.textContent = currency;
+    option.value = code;
+    option.textContent = `${code} - ${name}`;
     selectTargetCurrency.appendChild(option);
-  }
+  });
 }
 
 
