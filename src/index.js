@@ -1,13 +1,12 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import { getConversionRate, getSupportedCodes } from './js/exchange';
+import { getConversionRate, getSupportedCodes } from './js/exchange'; // Import functions
 
 export function createSelectionForms(currencies) {
   const selectTargetCurrency = document.getElementById('target-currency');
-  
   selectTargetCurrency.innerHTML = '';
-  
+
   for (const currency in currencies) {
     const option = document.createElement('option');
     option.value = currency;
@@ -16,13 +15,14 @@ export function createSelectionForms(currencies) {
   }
 }
 
+
 function clearResults() {
   document.getElementById('result-message').innerText = 'Converted amount will be displayed here.';
 }
 
 export function displayConversion(response, base, query) {
   const resultMessage = document.getElementById('result-message');
-  
+
   if (response.status === 'success') {
     resultMessage.innerText = `Converted amount in ${query}: ${response.converted_amount}`;
   } else {
@@ -34,6 +34,14 @@ export function displayError(error, base, query) {
   const resultMessage = document.getElementById('result-message');
   resultMessage.innerText = `Error converting ${base} to ${query}: ${error.message}`;
 }
+
+document.getElementById('conversion-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  clearResults();
+  const baseAmount = document.getElementById('usd-amount').value;
+  const targetCurrency = document.getElementById('target-currency').value;
+  getConversionRate(baseAmount, 'USD', targetCurrency);
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   getSupportedCodes();
