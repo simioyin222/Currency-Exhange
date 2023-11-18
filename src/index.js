@@ -3,11 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import { getConversionRate, getSupportedCodes } from './js/exchange'; // Import functions
 
-export function createSelectionForms(currencies) {
+export function createSelectionForms(SupportedCodes) {
   const selectTargetCurrency = document.getElementById('target-currency');
   selectTargetCurrency.innerHTML = '';
 
-  for (const currency in currencies) {
+  for (const currency in SupportedCodes) {
     const option = document.createElement('option');
     option.value = currency;
     option.textContent = currency;
