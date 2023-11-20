@@ -14,11 +14,11 @@ export function getConversionRate(baseAmount, baseCode, queryCode) {
 
 export function getSupportedCodes() {
   ExchangeService.getSupportedCodes()
-  .then((currencies) => {
-    if (currencies.result === "success") {
-      createSelectionForms(currencies["supported_codes"]);
-    } else {
-      displayError(currencies, "Supported Currencies");
-    }
-  });
+    .then((currencies) => {
+      if (currencies.result === "success") {
+        createSelectionForms(currencies["supported_codes"]);
+      } else {
+        displayError(currencies, "Supported Currencies");
+      }
+    });
 }
