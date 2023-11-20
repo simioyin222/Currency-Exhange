@@ -1,7 +1,6 @@
 export default class ExchangeService {
   static getConversionRate(baseAmount, baseCode, targetCode) {
-    const API_KEY = '0730e5c64ea66bb10852fe7b';
-    const url = `https://v6.exchangerate-api.com/v6/${API_KEY}/pair/${"USD"}/${targetCode}/${100}`;
+    const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/${baseCode}/${targetCode}/${baseAmount}`;
     return fetch(url)
       .then(function (response) {
         if (!response.ok) {
@@ -22,8 +21,7 @@ export default class ExchangeService {
   }
 
   static getSupportedCodes() {
-    const API_KEY = '0730e5c64ea66bb10852fe7b';
-    const url = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/USD`;
+    const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
     return fetch(url)
       .then(function (response) {
         if (!response.ok) {
