@@ -23,7 +23,7 @@ export default class ExchangeService {
 
   static getSupportedCodes() {
     const API_KEY = '0730e5c64ea66bb10852fe7b';
-    const url = `https://v6.exchangerate-api.com/v6/${API_KEY}/codes`;
+    const url = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/USD`;
     return fetch(url)
       .then(function (response) {
         if (!response.ok) {
