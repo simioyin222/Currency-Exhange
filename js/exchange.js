@@ -1,4 +1,4 @@
-import ExchangeService from './services/exchange-service.js';
+import ExchangeService from './service.js';
 import { displayConversion, displayError, createSelectionForms } from './../index.js';
 
 export function getConversionRate(baseAmount, baseCode, queryCode) {
