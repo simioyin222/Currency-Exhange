@@ -27,18 +27,11 @@ Additionally, it dynamically generates dropdown menus listing all available curr
 2. Open Terminal.
 3. Change your working directory to where you want the cloned directory.
 4. Type `git clone`, and paste the URL.
-5. Press Enter to create your local clone.
-
-   Or use the command:
-$ git clone https://github.com/[simioyin222]/currency-exchange.git
-
-vbnet
-Copy code
+5. Press Enter to create your local clone. Or use the command: $ git clone https://github.com/[simioyin222]/currency-exchange.git
 6. Get your own API key for the project's API by visiting [the API website](https://app.exchangerate-api.com/dashboard).
 7. Create an account on the site and get your API key.
 8. Navigate to the root of the cloned directory.
-9. Create an `.env` file and add your API key:
-API_KEY=[YOUR-API-KEY-HERE]
+9. Create an `.env` file and add your API key: API_KEY=[YOUR-API-KEY-HERE]
 
 markdown
 Copy code
