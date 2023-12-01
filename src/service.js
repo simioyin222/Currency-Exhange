@@ -21,7 +21,7 @@ export default class ExchangeService {
   }
 
   static getSupportedCodes() {
-    const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`;
+    const url = `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/codes`;
     return fetch(url)
       .then(function (response) {
         if (!response.ok) {

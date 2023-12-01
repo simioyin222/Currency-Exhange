@@ -1,7 +1,7 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import { getConversionRate, getSupportedCodes } from './../js/exchange';
+import { getConversionRate, getSupportedCodes } from './js/exchange';
 
 export function createSelectionForms(supportedCodes) {
   const selectTargetCurrency = document.getElementById('target-currency');
@@ -23,9 +23,8 @@ function clearResults() {
 
 export function displayConversion(response, base, query) {
   const resultMessage = document.getElementById('result-message');
-
-  if (response.status === 'success') {
-    resultMessage.innerText = `Converted amount in ${query}: ${response.converted_amount}`;
+  if (response.result === 'success') {
+    resultMessage.innerText = `Converted amount in ${query}: ${response.conversion_result}`;
   } else {
     resultMessage.innerText = `Error converting ${base} to ${query}: ${response.error_info}`;
   }

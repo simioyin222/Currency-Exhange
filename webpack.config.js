@@ -11,7 +11,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   devServer: {
-    contentBase: './dist'
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
   },
   devtool: 'eval-source-map',
   plugins: [
