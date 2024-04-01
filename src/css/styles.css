@@ -48,6 +48,7 @@ header h1 {
 .result {
   text-align: center;
   color: #4a90e2;
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {
